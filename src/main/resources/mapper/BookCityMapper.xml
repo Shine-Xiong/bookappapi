@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tianyu.bookappapi.dao.BookCityMapper">
+    <select id="classicAll" resultType="BookClassic">
+        SELECT * FROM book_classic WHERE one_id=1
+    </select>
+    <select id="heatrankingTop" resultType="BookHeatRanking">
+        SELECT * FROM book_heatranking WHERE one_id=#{sex} ORDER BY (hr_heat+0) DESC LIMIT 0,6
+    </select>
+    <select id="scoreAll" resultType="BookScore">
+        SELECT * FROM book_score WHERE one_id=#{sex}
+    </select>
+    <select id="newbookAll" resultType="BookNew">
+        SELECT * FROM book_new WHERE one_id=#{sex}
+    </select>
+    <select id="cityAll" resultType="BookCity">
+        SELECT * FROM book_bookcity WHERE one_id=#{sex} ORDER BY (bc_score+0) DESC
+    </select>
+</mapper>
